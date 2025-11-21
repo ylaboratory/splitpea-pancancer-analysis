@@ -3,7 +3,7 @@ library(dplyr)
 library(tidyr)
 library(data.table)
 
-cancer_tissue_splice <- read.csv("/results/cancer_tissue_alt_splice_corrected.csv")
+cancer_tissue_splice <- read.csv("/results/cancer_alt_splice.csv")
 colnames(cancer_tissue_splice) <- c("cancer_tissue_splicemb", "Cancer.Types")
 cancer_tissue_splice$Cancer.Types <- gsub("_", "+", cancer_tissue_splice$Cancer.Types)
 cancer_tissue_splice$Tissue.Types <- sub(".*\\+", "", cancer_tissue_splice$Cancer.Types)
@@ -81,7 +81,7 @@ ggplot(plot.dat, aes(x = x, y = y, color = Color)) +
 
 
 
-cancer_tissue_splice_corrected <- read.csv("/results/cancer_tissue_alt_splice_corrected.csv")
+cancer_tissue_splice_corrected <- read.csv("/results/cancer_tissue_alt_splice.csv")
 colnames(cancer_tissue_splice_corrected) <- c("cancer_tissue_splice_correctedmb", "Cancer.Types")
 cancer_tissue_splice_corrected$Cancer.Types <- gsub("_", "+", cancer_tissue_splice_corrected$Cancer.Types)
 cancer_tissue_splice_corrected$Tissue.Types <- sub(".*\\+", "", cancer_tissue_splice_corrected$Cancer.Types)

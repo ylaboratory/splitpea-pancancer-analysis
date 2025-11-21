@@ -8,7 +8,7 @@ from src.data_processing.outlier_analysis import all_cancer_run_dbscan
 def main():
     scatter = pd.read_csv("/results/scatter_df.csv")
 
-    tcga_meta = pd.read_csv("/ref/tag_metadata.csv")
+    tcga_meta = pd.read_csv("/ref/tcga_metadata.csv")
 
 
     outlier_analysis.scatter = scatter
