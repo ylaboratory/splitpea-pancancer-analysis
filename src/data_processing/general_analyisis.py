@@ -202,8 +202,8 @@ for can in folders_tuples:
             'edge_count_total': c_edge_count_total,
             'gene_presence_count': c_gene_presence_count,
             'gene_degree_count': c_gene_degree_count,
-            "og_background__degree": c_background__degree,
-            "og_background__degree_norm": c_background__degree_prop, 
+            "original_background__degree": c_background__degree,
+            "original_background__degree_norm": c_background__degree_prop, 
             'num_samples': num_files
             }
 
@@ -216,7 +216,7 @@ df_edge_count_chaos = pd.DataFrame.from_dict(edge_count_chaos, orient='index', c
 df_edge_count_total = pd.DataFrame.from_dict(edge_count_total, orient='index', columns=['edge_count_total'])
 df_gene_presence_count = pd.DataFrame.from_dict(gene_presence_count, orient='index', columns=['gene_presence_count'])
 df_gene_degree_count = pd.DataFrame.from_dict(gene_degree_count, orient='index', columns=['gene_degree_count'])
-df_og_background__degree = pd.DataFrame.from_dict(gene_degree_count, orient='index', columns=['og_background__degree'])
+df_original_background__degree = pd.DataFrame.from_dict(gene_degree_count, orient='index', columns=['original_background__degree'])
 df_presence_prop = pd.DataFrame()
 df_degree_avg = pd.DataFrame()
 df_degree_norm = pd.DataFrame()
@@ -235,8 +235,8 @@ for cancer_type, metrics_dict in metrics_per_cancer.items():
                for key, value in metrics_dict['gene_presence_count'].items()}) # basically metrics_dict['gene_presence_count'] / metrics_dict['num_samples'] 
     df_degree_avg[cancer_type + '_degree_avg'] = pd.Series({key: value / metrics_dict['num_samples'] if isinstance(value, (int, float)) else value 
                for key, value in metrics_dict['gene_degree_count'].items()}) # basically metrics_dict['gene_degree_count'] / metrics_dict['num_samples']
-    df_degree_norm[cancer_type + '_norm_degreed'] = pd.Series(metrics_dict['og_background__degree_norm'])
-    df_degree_norm_prop[cancer_type + '_norm_degree_prop'] = pd.Series({key: metrics_dict['og_background__degree_norm'][key] / (metrics_dict['num_samples']) for key in metrics_dict['og_background__degree_norm']}) # basically metrics_dict['gene_degree_count'] / metrics_dict['og_background__degree']  
+    df_degree_norm[cancer_type + '_norm_degreed'] = pd.Series(metrics_dict['original_background__degree_norm'])
+    df_degree_norm_prop[cancer_type + '_norm_degree_prop'] = pd.Series({key: metrics_dict['original_background__degree_norm'][key] / (metrics_dict['num_samples']) for key in metrics_dict['original_background__degree_norm']}) # basically metrics_dict['gene_degree_count'] / metrics_dict['original_background__degree']  
 
     
 
