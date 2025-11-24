@@ -65,4 +65,4 @@ p <- ggplot(df_summary, aes(x = cancer, y = proportion, fill = driver_status)) +
 
 print(p)
 
-#ggsave("/home/jz94/splint/a_cleaned_code/plots/stacked_bar_driver.pdf", plot = p)
+#ggsave("/plots/stacked_bar_driver.pdf", plot = p)

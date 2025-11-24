@@ -77,7 +77,7 @@ non_nan_counts_dfs = []
 
 for ct in folders_tuples:
     print(ct[0])
-    path = "/scratch/jz94/splint_stuff"+  '/'+ ct[0] + '/' + ct[1] + '/psis'
+    path = "/splitpea_results/"+  '/'+ ct[0] + '/' + ct[1] + '/psis'
     file_list = os.listdir(path)
     print(len(file_list))
     x = 0 
