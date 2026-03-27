@@ -3,7 +3,7 @@
 ## About
 Understanding how tumors remodel cellular protein interaction networks is central to deciphering cancer biology. However, although alternative splicing generates extensive transcript diversity in cancer, its systems-level impact on protein-protein interaction networks across tumor types and patients remains poorly characterized. Here, focusing on exon skipping as a mechanistically interpretable form of alternative splicing, we analyze 7,949 tumors across 28 cancer types to reconstruct patient-specific rewired PPI networks relative to matched normal tissues. We identify widespread and structured remodeling of protein connectivity, including a conserved pan-cancer axis of interaction loss that converges on core oncogenic pathways, as well as cancer-type- and subtype-specific rewiring patterns centered on highly connected driver-associated genes. At the patient level, tumors exhibiting extreme rewiring, especially pronounced interaction gains, represent clinically aggressive phenotypes associated with significantly poorer survival. These results delineate systems-level patterns through which alternative splicing reshapes protein interaction networks and contributes to tumor heterogeneity across cancers.
 
-## Installation of dependencies
+## Getting started
 
 ```bash
 conda env create -f env.yml
