@@ -12,7 +12,7 @@ conda activate splitpea-pancancer
 
 ## src/run_splitpea
 
-`run_splitpea.sh` runs the full splitpea pipeline. Example of a run on a tissue save to.
+`run_splitpea.sh` runs the full splitpea pipeline for one tissue. Install splitpea from [ylaboratory/splitpea](https://github.com/ylaboratory/splitpea). TCGA and GTEx spliced exon data can be downloaded from [IRIS](https://github.com/Xinglab/IRIS).
 
 ## src/data_processing
 
