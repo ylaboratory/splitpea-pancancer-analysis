@@ -61,3 +61,6 @@ plt.legend(title='Negative Threshold')
 plt.grid(True)
 plt.savefig('/plots/neg_cons_cons.pdf', bbox_inches='tight')
 plt.show()
+
+counts_per_edge_neg.to_csv('/data/counts_per_edge_neg.csv', index=False)
+counts_per_edge_pos.to_csv('/data/counts_per_edge_pos.csv', index=False)

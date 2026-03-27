@@ -153,11 +153,13 @@ Negative_Rate:  (Negative_Count / Total_Samples).
 
 Adjusted_Positive_Specificity_Score:  (Positive_Specificity_Score * Positive_Rate).
 Adjusted_Negative_Specificity_Score:  (Negative_Specificity_Score * Negative_Rate).
-Net_Edge_Score:  ((Positive_Count - Negative_Count) / Total_Samples).
+
+Net_Edge_Score:  ((Positive_Count - Negative_Count) / Total_Samples). # what we also called consistency  
+
 Net_Specificity_Score: (Positive_Specificity_Score - Negative_Specificity_Score).
 Adjusted_Net_Specificity_Score:  (Adjusted_Positive_Specificity_Score - Adjusted_Negative_Specificity_Score).
 
-Stability: Postive_Rate - Negative_Rate
+Stability: Postive_Rate - Negative_Rate # this is also consistency
 
 """
 

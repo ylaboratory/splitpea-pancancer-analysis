@@ -458,3 +458,32 @@ res_melted = pd.melt(df_w_driver_info_diretvindirect, id_vars=['sample', 'cancer
 
 res_melted['cancer'] = pd.Categorical(res_melted['cancer'], categories=cancer_types_order, ordered=True)
 res_melted.to_csv("/data/driver_splitpea_info.csv")
+
+mc3_mutated_genes = pd.read_csv('/home/jz94/splint/a_cleaned_code/external_data/mc3_mutation_data.csv')
+driver_genes = set(mutated_driver_genes['GENE_SYMBOL'])
+
+mutated_driver_genes["Participant"] = mutated_driver_genes["sample"].str.slice(0, 12)
+node_data_df_copy = node_data_df.copy()
+node_data_df_copy["Participant"] = node_data_df_copy["sample"].str.slice(0, 12)
+
+merged_node_data_df = node_data_df_copy.merge(mutated_driver_genes,
+                                  on=['Participant', 'GENE_SYMBOL'], how='left', indicator='driver_status')
+
+mc3_mutated_genes['GENE_SYMBOL'] = mc3_mutated_genes['Hugo_Symbol']
+merged_node_data_df = merged_node_data_df.merge(mc3_mutated_genes,
+                                  on=['Participant', 'GENE_SYMBOL'], how='left', indicator='mc3_status')
+
+def label_samples(row):
+    if row['driver_status'] == 'both':
+        return 'mutated driver'
+    elif row['mc3_status'] == 'both' and row['GENE_SYMBOL'] not in driver_genes:
+        return 'mutated non-driver'
+    elif row['mc3_status'] == 'left_only' and row['GENE_SYMBOL'] in driver_genes:
+        return 'non-mutated driver'
+    else:
+        return 'other'
+
+merged_node_data_df['label'] = merged_node_data_df.apply(label_samples, axis=1)
+
+driver_non_mutation_df = merged_node_data_df[['GENE_SYMBOL', 'Participant', 'degree', 'label']]
+driver_non_mutation_df.to_csv('/data/driver_non_mutation_df.csv')

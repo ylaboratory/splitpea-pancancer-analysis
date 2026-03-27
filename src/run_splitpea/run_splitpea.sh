@@ -11,7 +11,7 @@ Rscript src/delta_psi.R -o psis -s test-data/spliced_exons_gtex_pancreas_test_co
 python src/get_background_ppi.py
 
 ## 4
-bash src/run_splitpea_batch.sh -i psis -o output -p 75
+bash src/run_splitpea_batch.sh -i psis -o /results/splitpea_outputs -p 75
 
 ## 5
-python src/get_consensus_network.py output
+python src/get_consensus_network.py /results/splitpea_outputs
