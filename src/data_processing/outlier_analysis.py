@@ -1,6 +1,6 @@
-def all_cancer_run_dbscan(input_df,
-                          tcga_meta, # clinical metadata dataframe
-                          scatter,  # scatterplot dataframe
+def all_cancer_run_dbscan(scatter, # scatterplot dataframe
+                          tcga_meta, # clinical metadata dataframe from recount
+                          direction='positive',
                           eps=0.7,
                           min_samples=2,
                           scaling_method='z-score',
@@ -41,6 +41,9 @@ def all_cancer_run_dbscan(input_df,
         if 'stage iv' in s:
             ret = 'Stage IV'
         return ret
+
+    input_df = scatter[scatter['direction'] == direction].copy()
+    input_df['patient_id'] = input_df['Participants']
 
     all_cancer_results = []
 
