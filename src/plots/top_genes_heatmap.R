@@ -3,7 +3,7 @@ library(circlize)
 library(dplyr)
 library(readr)
 
-cosmic_data <- read_tsv("Cosmic_MutantCensus_v99_GRCh37.tsv.gz")
+cosmic_data <- read_tsv("/ref/Cosmic_MutantCensus_v99_GRCh37.tsv.gz")
 unique_driver_genes <- unique(cosmic_data$GENE_SYMBOL)
 top_genes_df <- read_csv('blue_heatmap_ordered.csv')
 top_genes_df <- as.data.frame(top_genes_df)
